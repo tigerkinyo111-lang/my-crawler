@@ -174,6 +174,11 @@ if __name__ == "__main__":
     scheduler.add_job(job, CronTrigger(hour=21, minute=40), id="job_2140")
     
     logger.info("🚀 Selenium 機器人啟動中...")
+    
+    # [新增] 啟動時立刻執行一次測試
+    logger.info("⚡ 正在執行啟動測試 (Test Run)...")
+    job()
+    
     try:
         scheduler.start()
     except (KeyboardInterrupt, SystemExit):
